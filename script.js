@@ -1,11 +1,13 @@
 const bookArray = [];
 
-function Book(title, author, pages, status = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-}
+const FactoryBook = (title, author, pages, status = false) => {
+  return {
+    title,
+    author,
+    pages,
+    status,
+  };
+};
 
 const button = document.querySelector('#newbook');
 const bookname = document.querySelector('#bookName');
@@ -81,7 +83,7 @@ const addBookToLibrary = (e) => {
   if (bookname.value === '' || author.value === '' || pages.value === '') {
     alert('Fill All Fields');
   } else {
-    const book = new Book(
+    const book = FactoryBook(
       bookname.value,
       author.value,
       pages.value,
